@@ -1,3 +1,28 @@
-<p>
-  random-joke works!
-</p>
+<div *ngIf="joke" class="center">
+  Random joke:
+    <table>
+      <tr><td></td><td></td></tr>
+      <tr>
+        <td></td>
+        <td>
+          <img src="{{joke.icon_url}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>Id</td>
+        <td>{{joke.id}}</td>
+      </tr>
+      <tr>
+        <td>Category:</td>
+        <td>
+          <strong>{{joke.category}}</strong>
+        </td>
+      </tr>
+      <tr>
+        <td>Joke:</td>
+        <td>
+          <strong>{{joke.value}}</strong>
+        </td>
+      </tr>
+    </table>
+</div>

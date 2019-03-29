@@ -11,6 +11,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RandomJokeComponent } from './random-joke/random-joke.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SearchComponent } from './search/search.component';
+import { ChuckNorisService } from './service/ChuckNoris.service';
 
 
 
@@ -38,7 +39,9 @@ import { SearchComponent } from './search/search.component';
 
     ], {useHash: true})
   ],
-  providers: [],
+  providers: [
+    ChuckNorisService
+  ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
