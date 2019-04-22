@@ -3,12 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class ChuckNorisService {
-  rootUrl = "https://api.chucknorris.io/jokes/"
   constructor(private http: HttpClient) { }
 
   public GetJoke()
   {
-    return this.http.get<Ijoke>(`${this.rootUrl}/random`);
+    return this.http.get<Ijoke>(" https://api.chucknorris.io/jokes/random");
   }
 
 

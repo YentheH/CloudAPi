@@ -12,6 +12,7 @@ import { RandomJokeComponent } from './random-joke/random-joke.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SearchComponent } from './search/search.component';
 import { ChuckNorisService } from './service/ChuckNoris.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -37,7 +38,9 @@ import { ChuckNorisService } from './service/ChuckNoris.service';
       {path: '' , redirectTo: 'home' , pathMatch: 'full'},
       {path: "**", component: PageNotFoundComponent}
 
-    ], {useHash: true})
+    ], {useHash: true}),
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     ChuckNorisService
