@@ -13,6 +13,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { SearchComponent } from './search/search.component';
 import { ChuckNorisService } from './service/ChuckNoris.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
 
 
 
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     RandomJokeComponent,
     CategoriesComponent,
-    SearchComponent
+    SearchComponent,
+    HomeComponent,
+    CategoryDetailsComponent
 
   ],
   imports: [
@@ -32,7 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     MDBBootstrapModule.forRoot(),
     FormsModule,
     RouterModule.forRoot([
-      {path: 'home', component: RandomJokeComponent},
+      {path: 'home', component: HomeComponent},
       {path: 'categories', component: CategoriesComponent},
       {path: 'search', component: SearchComponent},
       {path: '' , redirectTo: 'home' , pathMatch: 'full'},
