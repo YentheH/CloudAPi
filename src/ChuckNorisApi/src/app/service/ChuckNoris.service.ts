@@ -17,7 +17,7 @@ export class ChuckNorisService {
 
   public GetDetailCategory()
   {
-    return this.http.get<IcategoryDetail>("https://api.chucknorris.io/jokes/random?category=dev") // Dev moet nog wel user input worden
+    return this.http.get<IcategoryDetail>("https://api.chucknorris.io/jokes/random?category=food") // Dev moet nog wel user input worden
   }
 
   public GetSearch()

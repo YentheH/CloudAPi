@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IcategoryDetail, ChuckNorisService } from '../service/ChuckNoris.service';
 
 @Component({
   selector: 'app-category-details',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category-details.component.scss']
 })
 export class CategoryDetailsComponent implements OnInit {
-
-  constructor() { }
+  DetialCategory: IcategoryDetail
+  constructor(private svc: ChuckNorisService) { }
 
   ngOnInit() {
+    this.svc.GetDetailCategory().subscribe(d => {this.DetialCategory = d})
   }
 
 }

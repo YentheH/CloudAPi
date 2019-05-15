@@ -1,3 +1,22 @@
-<p>
-  category-details works!
-</p>
+<div *ngIf="DetialCategory" class="center">
+    <p>Joke from {{DetialCategory.category}}</p>
+    <table>
+      <tr><td></td><td></td></tr>
+      <tr>
+        <td></td>
+        <td>
+          <img src="{{DetialCategory.icon_url}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>Id</td>
+        <td>{{DetialCategory.id}}</td>
+      </tr>
+      <tr>
+        <td>Joke:</td>
+        <td>
+          <strong>{{DetialCategory.value}}</strong>
+        </td>
+      </tr>
+    </table>
+</div>

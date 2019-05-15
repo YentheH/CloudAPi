@@ -15,6 +15,7 @@ import { ChuckNorisService } from './service/ChuckNoris.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { RandomOwnJokeComponent } from './random-own-joke/random-own-joke.component';
 
 
 
@@ -27,7 +28,8 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
     CategoriesComponent,
     SearchComponent,
     HomeComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    RandomOwnJokeComponent
 
   ],
   imports: [
