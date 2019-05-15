@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChuckNorisService, Ijoke, IcategoryDetail, IcategoryList } from '../service/ChuckNoris.service'
+
 
 @Component({
   selector: 'app-categories',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-
-  constructor() { }
+  listCategory: IcategoryList
+  constructor(private svc: ChuckNorisService) { }
 
   ngOnInit() {
+    this.svc.GetCategoryList().subscribe(d => {this.listCategory = d})
+
   }
 
 }

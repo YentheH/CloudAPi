@@ -1,27 +1,27 @@
-<div *ngIf="joke" class="center">
-  <h1 class="text-primary">Random joke:</h1>
+<div *ngIf="OwnJoke" class="center">
+  <h1 class="text-primary">Random own joke:</h1>
     <table>
       <tr><td></td><td></td></tr>
       <tr>
         <td></td>
         <td>
-          <img src="{{joke.icon_url}}" />
+          <img src="{{OwnJoke.icon_url}}" />
         </td>
       </tr>
       <tr>
         <td>Id</td>
-        <td>{{joke.id}}</td>
+        <td>{{OwnJoke.id}}</td>
       </tr>
       <tr>
         <td>Joke:</td>
         <td>
-          <strong>{{joke.value}}</strong>
+          <strong>{{OwnJoke.value}}</strong>
         </td>
       </tr>
       <tr>
         <td>category:</td>
         <td>
-          <strong>{{joke.category}}</strong>
+          <strong>{{OwnJoke.category}}</strong>
         </td>
       </tr>
   

@@ -1,3 +1,17 @@
-<p>
-  categories works!
-</p>
+<div class="container">
+  <div class="row">
+      <div class="col">
+        <h1 class="text-primary">Click button for category</h1>
+        <div *ngFor="let category of listCategory">
+          <button type="button" class="btn btn-primary btn-lg btn-block">
+            {{category}}
+          </button>
+        </div>
+      </div>
+      
+      <div class="col">
+          <h1 class="text-primary">Detials from the category</h1>
+          <app-category-details></app-category-details>
+      </div>
+  </div>
+</div>
