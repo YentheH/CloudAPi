@@ -9,11 +9,14 @@ import { ChuckNorisService, Ijoke, IcategoryDetail, IcategoryList } from '../ser
 })
 export class CategoriesComponent implements OnInit {
   listCategory: IcategoryList
+  DetialCategory: IcategoryDetail
   constructor(private svc: ChuckNorisService) { }
 
   ngOnInit() {
     this.svc.GetCategoryList().subscribe(d => {this.listCategory = d})
-
   }
 
+  onClickMe(category: string) {
+    this.svc.GetDetailCategory(category).subscribe(d => {this.DetialCategory = d})
+  }
 }
