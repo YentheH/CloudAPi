@@ -1,0 +1,14 @@
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\bin\Debug\netcoreapp2.1\ChuckNorisServer.deps.json
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\bin\Debug\netcoreapp2.1\ChuckNorisServer.runtimeconfig.json
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\bin\Debug\netcoreapp2.1\ChuckNorisServer.runtimeconfig.dev.json
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\bin\Debug\netcoreapp2.1\ChuckNorisServer.dll
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\bin\Debug\netcoreapp2.1\ChuckNorisServer.pdb
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\obj\Debug\netcoreapp2.1\ChuckNorisServer.csprojAssemblyReference.cache
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\obj\Debug\netcoreapp2.1\ChuckNorisServer.csproj.CoreCompileInputs.cache
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\obj\Debug\netcoreapp2.1\ChuckNorisServer.RazorAssemblyInfo.cache
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\obj\Debug\netcoreapp2.1\ChuckNorisServer.RazorAssemblyInfo.cs
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\obj\Debug\netcoreapp2.1\ChuckNorisServer.AssemblyInfoInputs.cache
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\obj\Debug\netcoreapp2.1\ChuckNorisServer.AssemblyInfo.cs
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\obj\Debug\netcoreapp2.1\ChuckNorisServer.RazorTargetAssemblyInfo.cache
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\obj\Debug\netcoreapp2.1\ChuckNorisServer.dll
+C:\Users\yenth\Documents\school\cloud api\CloudAPi\src\ChuckNorisServer\ChuckNorisServer\ChuckNorisServer\obj\Debug\netcoreapp2.1\ChuckNorisServer.pdb
