@@ -1,17 +1,38 @@
 <div class="container">
   <div class="row">
       <div class="col">
-        <h1 class="text-primary">Click button for category</h1>
+        <h1 class="text-primary">Click button for a category</h1>
         <div *ngFor="let category of listCategory">
-          <button type="button" class="btn btn-primary btn-lg btn-block">
+          <button (click)="onClickMe(category)" type="button" class="btn btn-primary btn-lg btn-block">
             {{category}}
           </button>
         </div>
       </div>
       
       <div class="col">
-          <h1 class="text-primary">Detials from the category</h1>
-          <app-category-details></app-category-details>
+          <h1 class="text-primary">Details from the category</h1>
+          <div *ngIf="DetialCategory" class="center">
+            <p>Joke from {{DetialCategory.category}}</p>
+            <table>
+              <tr><td></td><td></td></tr>
+              <tr>
+                <td></td>
+                <td>
+                  <img src="{{DetialCategory.icon_url}}" />
+                </td>
+              </tr>
+              <tr>
+                <td>Id</td>
+                <td>{{DetialCategory.id}}</td>
+              </tr>
+              <tr>
+                <td>Joke:</td>
+                <td>
+                  <strong>{{DetialCategory.value}}</strong>
+                </td>
+              </tr>
+            </table>
+        </div>
       </div>
   </div>
 </div>

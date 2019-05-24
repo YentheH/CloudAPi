@@ -14,8 +14,8 @@ import { SearchComponent } from './search/search.component';
 import { ChuckNorisService } from './service/ChuckNoris.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { RandomOwnJokeComponent } from './random-own-joke/random-own-joke.component';
+import { OwnApiComponent } from './own-api/own-api.component';
 
 
 
@@ -28,8 +28,8 @@ import { RandomOwnJokeComponent } from './random-own-joke/random-own-joke.compon
     CategoriesComponent,
     SearchComponent,
     HomeComponent,
-    CategoryDetailsComponent,
-    RandomOwnJokeComponent
+    RandomOwnJokeComponent,
+    OwnApiComponent
 
   ],
   imports: [
@@ -41,6 +41,7 @@ import { RandomOwnJokeComponent } from './random-own-joke/random-own-joke.compon
       {path: 'home', component: HomeComponent},
       {path: 'categories', component: CategoriesComponent},
       {path: 'search', component: SearchComponent},
+      {path: 'own joke', component: OwnApiComponent},
       {path: '' , redirectTo: 'home' , pathMatch: 'full'},
       {path: "**", component: PageNotFoundComponent}
 

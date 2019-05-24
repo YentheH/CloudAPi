@@ -15,9 +15,9 @@ export class ChuckNorisService {
     return this.http.get<IcategoryList>("https://api.chucknorris.io/jokes/categories")
   }
 
-  public GetDetailCategory()
+  public GetDetailCategory(data: string)
   {
-    return this.http.get<IcategoryDetail>("https://api.chucknorris.io/jokes/random?category=food") // Dev moet nog wel user input worden
+    return this.http.get<IcategoryDetail>(`https://api.chucknorris.io/jokes/random?category=${data}`) // Dev moet nog wel user input worden
   }
 
   public GetSearch()
@@ -30,6 +30,12 @@ export class ChuckNorisService {
   {
     return this.http.get("https://api.chucknorris.io/jokes/GMkUENKvSySHbWdUzh8kvA") // GMkUENKvSySHbWdUzh8kvA moet nog naar id veranderen via user input
   }
+
+  //Even voor te testen dat de knoppen werken
+  //public GetDetailCategoryTest(data: string)
+ // {
+    //return this.http.get<IcategoryDetail>(`https://api.chucknorris.io/jokes/random?category=${data}`) // Dev moet nog wel user input worden
+  //}
 
 }
 export interface Ijoke {
