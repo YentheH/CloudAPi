@@ -41,7 +41,7 @@ import { OwnApiComponent } from './own-api/own-api.component';
       {path: 'home', component: HomeComponent},
       {path: 'categories', component: CategoriesComponent},
       {path: 'search', component: SearchComponent},
-      {path: 'own joke', component: OwnApiComponent},
+      {path: 'OwnJoke', component: OwnApiComponent},
       {path: '' , redirectTo: 'home' , pathMatch: 'full'},
       {path: "**", component: PageNotFoundComponent}
 

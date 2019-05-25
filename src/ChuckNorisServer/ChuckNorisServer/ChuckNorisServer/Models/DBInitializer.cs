@@ -7,29 +7,31 @@ namespace ChuckNorisServer.Models
 {
     public class DBInitializer
     {
-        public static void Initialize(JokeContext context)
+        public static void Initialize(JokeListContext context)
         {
-            //Create the db if not yet exists
             context.Database.EnsureCreated();
 
-           
             if (!context.Jokes.Any())
             {
+                var category = new Category()
+                {
+                    Name = "Own Joke"
+                };
+                //context.Authors.Add(author);
+
                 var joke1 = new Joke()
                 {
-                    Id = 1,
-                    Category = "OwnJoke",
-                    Value= "Dit is een voorbeeld van 1 van de eigen moppen die je kan maken"
-                    
+                    //Id = 4,
+                    Value = "test mop",
+                    Category = category
                 };
 
                 var joke2 = new Joke()
                 {
-                    Id = 2,
-                    Category = "OwnJoke",
-                    Value = "Dit is een voorbeeld van 1 van de eigen moppen die je kan maken"
+                    //Id = 5,
+                    Value = "2de test mop",
+                    Category = category
                 };
-
                 context.Jokes.Add(joke1);
                 context.Jokes.Add(joke2);
                 context.SaveChanges();

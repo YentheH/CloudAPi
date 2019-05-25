@@ -5,30 +5,68 @@ using System.Threading.Tasks;
 using ChuckNorisServer.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace ChuckNorisServer.Controllers
+namespace API.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/Joke")]
-    public class JokeController : Controller
+    [Route("api/joke")]
+    [ApiController]
+    public class JokeController : ControllerBase
     {
-        private readonly JokeContext ctxt;
-
-        public JokeController(JokeContext ctxt)
+        public JokeListContext _context { get; set; }
+        public JokeController(JokeListContext ctxt)
         {
-            this.ctxt = ctxt;
+            _context = ctxt;
+        }
+
+        [HttpGet]
+        public List<Joke> GetJokes()
+        {
+            return _context.Jokes.ToList();
         }
 
         [Route("{id}")]
-        public Joke GetById(int id)
+        [HttpGet]
+        public ActionResult<Joke> GetJoke(int id)
         {
-            return this.ctxt.Jokes.Find(id);
+            var theJoke = _context.Jokes.Include(b => b.Category)
+                                        .SingleOrDefault(b => b.Id == id);
+            if (theJoke == null)
+                return NotFound();
+
+            return theJoke;
         }
 
-        public Joke GetByCategory(string category)
+        [Route("{id}")]
+        [HttpDelete]
+        public IActionResult DeleteJoke(int id)
         {
-            var J = this.ctxt.Jokes.FirstOrDefault(d => d.Category == category);
-            return J;
+            var theJoke = _context.Jokes.Find(id);
+            if (theJoke == null)
+                return NotFound();
+
+            _context.Jokes.Remove(theJoke);
+            _context.SaveChanges();             
+            return NoContent();
+        }
+
+        [HttpPost]
+        public ActionResult<Joke> AddJoke([FromBody]Joke joke)
+        {
+            _context.Jokes.Add(joke);
+            _context.SaveChanges();
+            //return boek met ID
+            return Created("", joke);
+        }
+
+        [HttpPut]
+        public ActionResult<Joke> UpdateJoke([FromBody]Joke joke)
+        {
+            //Boek updaten
+            _context.Jokes.Update(joke);
+            _context.SaveChanges();
+            //return boek met ID
+            return Created("", joke);
         }
     }
 }

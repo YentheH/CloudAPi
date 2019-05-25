@@ -1,3 +1,4 @@
-<p>
-  own-api works!
-</p>
+<div *ngFor="let joke of OwnJokeList">
+  <p>With ID {{joke.id}}</p>
+  <p>And value{{joke.value}}</p>
+</div>

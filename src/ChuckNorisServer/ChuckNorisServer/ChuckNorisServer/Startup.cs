@@ -28,7 +28,7 @@ namespace ChuckNorisServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<JokeContext>(
+            services.AddDbContext<JokeListContext>(
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")
                 )
@@ -39,18 +39,18 @@ namespace ChuckNorisServer
         }
 
         
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, JokeContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, JokeListContext context)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             DBInitializer.Initialize(context);
+            app.UseMvc();
             app.UseCors(builder =>
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()       
                        .AllowAnyHeader());
-            app.UseMvc();
         }
     }
 }
