@@ -29,7 +29,7 @@ namespace API.Controllers
         [HttpGet]
         public ActionResult<Joke> GetJoke(int id)
         {
-            var theJoke = _context.Jokes.Include(b => b.Category)
+            var theJoke = _context.Jokes
                                         .SingleOrDefault(b => b.Id == id);
             if (theJoke == null)
                 return NotFound();

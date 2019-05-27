@@ -15,20 +15,20 @@ namespace ChuckNorisServer.Models
             {
                 var category = new Category()
                 {
-                    Name = "Own Joke"
+                   Value = "OwnJoke",
+                   Id = 1
                 };
-                //context.Authors.Add(author);
+                context.Categories.Add(category);
+                context.SaveChanges();
 
                 var joke1 = new Joke()
                 {
-                    //Id = 4,
                     Value = "test mop",
                     Category = category
                 };
 
                 var joke2 = new Joke()
                 {
-                    //Id = 5,
                     Value = "2de test mop",
                     Category = category
                 };

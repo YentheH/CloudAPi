@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { RandomOwnJokeComponent } from './random-own-joke/random-own-joke.component';
 import { OwnApiComponent } from './own-api/own-api.component';
+import { OwnJokeService } from './service/OwnJoke.service';
 
 
 
@@ -50,7 +51,8 @@ import { OwnApiComponent } from './own-api/own-api.component';
     HttpClientModule
   ],
   providers: [
-    ChuckNorisService
+    ChuckNorisService,
+    OwnJokeService
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
