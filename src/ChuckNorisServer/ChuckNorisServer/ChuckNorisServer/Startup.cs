@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using ChuckNorisServer.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +23,7 @@ namespace ChuckNorisServer
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            
         }
 
         public IConfiguration Configuration { get; }
@@ -28,7 +31,7 @@ namespace ChuckNorisServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<JokeContext>(
+            services.AddDbContext<JokeListContext>(
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")
                 )
@@ -39,17 +42,17 @@ namespace ChuckNorisServer
         }
 
         
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, JokeContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, JokeListContext context)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             DBInitializer.Initialize(context);
-            app.UseCors(builder =>
-                builder.AllowAnyOrigin()
-                       .AllowAnyMethod()       
-                       .AllowAnyHeader());
+            app.UseCors(builder => builder
+                                        .AllowAnyOrigin()
+                                        .AllowAnyMethod()
+                                        .AllowAnyHeader());
             app.UseMvc();
         }
     }

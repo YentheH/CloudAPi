@@ -1,3 +1,42 @@
-<p>
-  own-api works!
-</p>
+
+
+<div class="container">
+  <div class="row">
+
+      <div class="col">
+        <div class="container">
+          <div class="row">
+              <div class="col">
+                <h1 class="text-primary">List of own joke</h1>
+                <div *ngFor="let joke of OwnJokeList">
+                  <p>With ID: {{joke.id}}</p>
+                  <p>And value: {{joke.value}}</p> 
+                </div>
+              </div>
+          </div>
+        </div>
+        <h1 class="text-primary"> Create a joke</h1>
+        <div>
+            <!-- form fields below -->
+             <input type="text" [(ngModel)]="id" placeholder="Id" /> 
+             <input type="text" [(ngModel)]="value" placeholder="joke" />
+             <input type="text" [(ngModel)]="category" placeholder="category" />
+             <!-- A button that invokes create action -->
+             <button (click)="createJoke()">Create New joke</button>
+            </div>
+
+
+
+      </div>
+
+      <div class="col">
+          <h1 class="text-primary">Search with ID</h1>
+          <input #box (keyup.enter)="onEnter(box.value)">
+          <div *ngIf="jokeID">
+              <p>With ID: {{jokeID.id}}</p>
+              <p>And value: {{jokeID.value}}</p> 
+            </div>
+      </div>
+
+  </div>
+</div>
