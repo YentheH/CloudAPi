@@ -18,11 +18,11 @@
         <h1 class="text-primary"> Create a joke</h1>
         <div>
             <!-- form fields below -->
-             <input type="text" [(ngModel)]="id" placeholder="Id" /> 
-             <input type="text" [(ngModel)]="value" placeholder="joke" />
-             <input type="text" [(ngModel)]="category" placeholder="category" />
+             <!-- <input #id type="number" placeholder="Id" /> --> 
+             <input #joke type="text" placeholder="joke" />
+             <!-- <input #category type="text" placeholder="category" /> -->
              <!-- A button that invokes create action -->
-             <button (click)="createJoke()">Create New joke</button>
+             <button (click)="createJoke(joke.value)">Create New joke</button>
             </div>
 
 
@@ -36,6 +36,14 @@
               <p>With ID: {{jokeID.id}}</p>
               <p>And value: {{jokeID.value}}</p> 
             </div>
+
+      <div>
+        <h1 class="text-primary">Delete with ID</h1>
+        <div>
+          <input #Id type="number" placeholder="Id" />
+          <button (click)="deleteJoke(Id.value)">Delete joke</button>
+        </div>
+      </div>
       </div>
 
   </div>
