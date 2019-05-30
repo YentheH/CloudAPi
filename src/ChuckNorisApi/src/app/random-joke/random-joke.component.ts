@@ -11,8 +11,10 @@ export class RandomJokeComponent implements OnInit {
   constructor(private svc: ChuckNorisService) { }
 
   ngOnInit() {
-    this.svc.GetJoke().subscribe(d => {this.joke = d;});
-    
+    this.svc.GetJoke().subscribe(d => {this.joke = d})
+  }
+  getNewJoke(){
+    this.svc.GetJoke().subscribe(d => {this.joke = d})
   }
 
 }

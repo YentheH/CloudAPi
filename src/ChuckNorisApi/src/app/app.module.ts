@@ -14,7 +14,6 @@ import { SearchComponent } from './search/search.component';
 import { ChuckNorisService } from './service/ChuckNoris.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { RandomOwnJokeComponent } from './random-own-joke/random-own-joke.component';
 import { OwnApiComponent } from './own-api/own-api.component';
 import { OwnJokeService } from './service/OwnJoke.service';
 
@@ -29,7 +28,6 @@ import { OwnJokeService } from './service/OwnJoke.service';
     CategoriesComponent,
     SearchComponent,
     HomeComponent,
-    RandomOwnJokeComponent,
     OwnApiComponent
 
   ],
