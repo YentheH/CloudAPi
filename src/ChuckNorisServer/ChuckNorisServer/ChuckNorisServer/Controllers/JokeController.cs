@@ -55,17 +55,17 @@ namespace API.Controllers
         {
             _context.Jokes.Add(joke);
             _context.SaveChanges();
-            //return boek met ID
+            
             return Created("", joke);
         }
 
         [HttpPut]
         public ActionResult<Joke> UpdateJoke([FromBody]Joke joke)
         {
-            //Boek updaten
+            
             _context.Jokes.Update(joke);
             _context.SaveChanges();
-            //return boek met ID
+            
             return Created("", joke);
         }
     }

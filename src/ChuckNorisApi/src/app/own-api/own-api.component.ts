@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IOwnJoke, OwnJokeService, Ibuffer } from '../service/OwnJoke.service';
+import { IOwnJoke, OwnJokeService, Ibuffer, IcreateJoke } from '../service/OwnJoke.service';
 
 @Component({
   selector: 'app-own-api',
@@ -10,11 +10,14 @@ export class OwnApiComponent implements OnInit {
   OwnJokeList: Ibuffer
   value = ''
   jokeID: IOwnJoke
+  OwnJoke: IcreateJoke = {'value': 't'}
+  PutJoke: IOwnJoke = {'category': null, 'id': 0, 'value': ''}
+  error: object
   
   constructor(private svc: OwnJokeService) { }
 
   ngOnInit() {
-    this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d;});
+    this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d})
 
   }
   
@@ -24,8 +27,22 @@ export class OwnApiComponent implements OnInit {
     this.svc.GetID(value).subscribe(d => {this.jokeID = d})
   }
   
-  createJoke()
+  createJoke(joke: string)
   {
+    this.OwnJoke.value = joke
+    this.svc.postJoke(this.OwnJoke).subscribe(d => {this.OwnJoke = d, this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d})})
+  }
+
+  deleteJoke(id: number)
+  {
+    this.svc.deleteJoke(id).subscribe(d => {this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d})})
+  }
+
+  updateJoke(id: number, joke: string)
+  {
+    this.PutJoke.id = id
+    this.PutJoke.value = joke
+    this.svc.updateJoke(this.PutJoke).subscribe(d => {this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d})})
     
   }
 
