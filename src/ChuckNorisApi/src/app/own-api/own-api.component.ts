@@ -11,12 +11,13 @@ export class OwnApiComponent implements OnInit {
   value = ''
   jokeID: IOwnJoke
   OwnJoke: IcreateJoke = {'value': 't'}
-  error: string
+  PutJoke: IOwnJoke = {'category': null, 'id': 0, 'value': ''}
+  error: object
   
   constructor(private svc: OwnJokeService) { }
 
   ngOnInit() {
-    this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d;});
+    this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d})
 
   }
   
@@ -28,16 +29,21 @@ export class OwnApiComponent implements OnInit {
   
   createJoke(joke: string)
   {
-    //this.OwnJoke.category = category
-    //this.OwnJoke.id = ID
-    //this.OwnJoke.value = value
     this.OwnJoke.value = joke
-    this.svc.postJoke(this.OwnJoke).subscribe(d => {this.OwnJoke = d})
+    this.svc.postJoke(this.OwnJoke).subscribe(d => {this.OwnJoke = d, this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d})})
   }
 
   deleteJoke(id: number)
   {
-    this.svc.deleteJoke(id).subscribe()
+    this.svc.deleteJoke(id).subscribe(d => {this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d})})
+  }
+
+  updateJoke(id: number, joke: string)
+  {
+    this.PutJoke.id = id
+    this.PutJoke.value = joke
+    this.svc.updateJoke(this.PutJoke).subscribe(d => {this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d})})
+    
   }
 
 }

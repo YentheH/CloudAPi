@@ -22,7 +22,7 @@
              <input #joke type="text" placeholder="joke" />
              <!-- <input #category type="text" placeholder="category" /> -->
              <!-- A button that invokes create action -->
-             <button (click)="createJoke(joke.value)">Create New joke</button>
+             <button (click)="createJoke(joke.value)" (click)="joke.value = ''" class="btn btn-primary">Create New joke</button>
             </div>
 
 
@@ -31,7 +31,7 @@
 
       <div class="col">
           <h1 class="text-primary">Search with ID</h1>
-          <input #box (keyup.enter)="onEnter(box.value)">
+          <input #box type="number" (keyup.enter)="onEnter(box.value)" (keyup.enter)="box.value = ''" placeholder="Id">
           <div *ngIf="jokeID">
               <p>With ID: {{jokeID.id}}</p>
               <p>And value: {{jokeID.value}}</p> 
@@ -40,11 +40,21 @@
       <div>
         <h1 class="text-primary">Delete with ID</h1>
         <div>
-          <input #Id type="number" placeholder="Id" />
-          <button (click)="deleteJoke(Id.value)">Delete joke</button>
+          <input #Id type="number" placeholder="Id" (keyup.enter)="deleteJoke(Id.value)" (keyup.enter)="Id.value =''"/>
         </div>
       </div>
+
+      <div>
+        <h1 class="text-primary">Update a joke</h1>
+        <div>
+          <input #PutID type="number" placeholder="Id">
+          <input #UpdateJoke type="text" placeholder="the joke">
+          <button (click)="updateJoke(PutID.value, UpdateJoke.value)" class="btn btn-primary">Update</button>
+        </div>
       </div>
+
+      </div>
+      
 
   </div>
 </div>

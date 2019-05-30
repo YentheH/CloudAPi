@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable()
 export class OwnJokeService {
   constructor(private http: HttpClient) { }
@@ -25,6 +26,11 @@ export class OwnJokeService {
   {
     return this.http.delete(`http://localhost:50073/api/joke/${id}`)
   }
+
+  public updateJoke(joke: IOwnJoke): Observable<IOwnJoke>
+  {
+    return this.http.put<IOwnJoke>(`http://localhost:50073/api/joke/${joke.id}`, joke)
+  }
 }
 export interface Ibuffer {
   jokeList: IOwnJoke
@@ -34,6 +40,10 @@ export interface IOwnJoke {
     id: number;
     value: string;
     category: string;
+}
+export interface Icategory {
+  Id: number;
+  CategoryName: string;
 }
 
 export interface IcreateJoke {

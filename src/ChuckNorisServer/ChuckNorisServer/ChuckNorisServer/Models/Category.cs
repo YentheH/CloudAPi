@@ -10,9 +10,9 @@ namespace ChuckNorisServer.Models
     {
         public int Id { get; set; }
 
-        public string Value { get; set; }
+        public string CategoryName { get; set; }
 
         [JsonIgnore]
-        public ICollection<Joke> Books { get; set; }
+        public ICollection<Joke> categories { get; set; }
     }
 }

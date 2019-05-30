@@ -15,11 +15,9 @@ namespace ChuckNorisServer.Models
             {
                 var category = new Category()
                 {
-                   Value = "OwnJoke",
-                   Id = 1
+                   CategoryName = "OwnJoke"
                 };
-                context.Categories.Add(category);
-                context.SaveChanges();
+                
 
                 var joke1 = new Joke()
                 {
