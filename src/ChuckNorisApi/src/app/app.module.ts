@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { OwnApiComponent } from './own-api/own-api.component';
 import { OwnJokeService } from './service/OwnJoke.service';
+import { PagerService } from './service/pager.service';
 
 
 
@@ -50,7 +51,8 @@ import { OwnJokeService } from './service/OwnJoke.service';
   ],
   providers: [
     ChuckNorisService,
-    OwnJokeService
+    OwnJokeService,
+    PagerService
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]

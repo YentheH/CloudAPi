@@ -1,3 +1,53 @@
-<p>
-  search works!
-</p>
+<div class="container">
+  <h1 class="text-primary">Search someting from the api</h1>
+  <input #input (keyup.enter)="search(input.value)" (keyup.enter)="input.value = ''" type="text" placeholder="Search">
+
+  <div *ngIf="SearchList">
+    <p>Aantel gevonden items: {{SearchList.total}}</p>
+    <div>
+      <div>
+        <div>
+          <!-- items being paged -->
+          <div *ngFor="let item of pagedItems">
+            <table>
+              <thead>
+                <th>Joke</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>The ID: {{item.id}}</td>
+                </tr>
+                <tr>
+                  <td>category: {{item.category}}</td>
+                </tr>
+                <tr>
+                  <td>Joke: {{item.value}}</td>
+                </tr>
+                <p></p>
+              </tbody>
+            </table>
+          </div>
+          <!-- pager -->
+          <ul *ngIf="pager.pages && pager.pages.length" class="list-group list-group-horizontal">
+            <li [ngClass]="{disabled:pager.currentPage === 1}" class="list-group-item" >
+              <a (click)="setPage(1)">First</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === 1}" class="list-group-item">
+              <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}"
+              class="list-group-item">
+              <a (click)="setPage(page)">{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="list-group-item">
+              <a (click)="setPage(pager.currentPage + 1)">Next</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="list-group-item">
+              <a (click)="setPage(pager.totalPages)">Last</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
