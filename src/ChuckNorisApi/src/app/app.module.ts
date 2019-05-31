@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { OwnApiComponent } from './own-api/own-api.component';
 import { OwnJokeService } from './service/OwnJoke.service';
 import { PagerService } from './service/pager.service';
+import { AuthService } from './auth/auth.service';
+import { AuthTestComponent } from './auth-test/auth-test.component';
 
 
 
@@ -29,7 +31,8 @@ import { PagerService } from './service/pager.service';
     CategoriesComponent,
     SearchComponent,
     HomeComponent,
-    OwnApiComponent
+    OwnApiComponent,
+    AuthTestComponent
 
   ],
   imports: [
@@ -42,9 +45,10 @@ import { PagerService } from './service/pager.service';
       {path: 'categories', component: CategoriesComponent},
       {path: 'search', component: SearchComponent},
       {path: 'OwnJoke', component: OwnApiComponent},
+      {path: 'testAuth', component: AuthTestComponent},
+      {path: 'access_token', redirectTo: 'home', pathMatch: 'full'},
       {path: '' , redirectTo: 'home' , pathMatch: 'full'},
-      {path: "**", component: PageNotFoundComponent}
-
+      {path: "**", component: PageNotFoundComponent},
     ], {useHash: true}),
     FormsModule,
     HttpClientModule
@@ -52,7 +56,8 @@ import { PagerService } from './service/pager.service';
   providers: [
     ChuckNorisService,
     OwnJokeService,
-    PagerService
+    PagerService,
+    AuthService
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
