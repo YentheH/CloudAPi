@@ -33,7 +33,7 @@ namespace ChuckNorisServer
         {
             services.AddDbContext<JokeListContext>(
                 options => options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")
+                    Configuration.GetConnectionString("AzureDbConnection")
                 )
             );
 
