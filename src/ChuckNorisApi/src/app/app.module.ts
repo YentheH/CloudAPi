@@ -16,6 +16,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { OwnApiComponent } from './own-api/own-api.component';
 import { OwnJokeService } from './service/OwnJoke.service';
+import { PagerService } from './service/pager.service';
+import { AuthService } from './auth/auth.service';
+import { AuthTestComponent } from './auth-test/auth-test.component';
+import { AuthGuard } from './auth/auth.guard';
+import { CallbackComponent } from './callback/callback.component';
 
 
 
@@ -28,7 +33,9 @@ import { OwnJokeService } from './service/OwnJoke.service';
     CategoriesComponent,
     SearchComponent,
     HomeComponent,
-    OwnApiComponent
+    OwnApiComponent,
+    AuthTestComponent,
+    CallbackComponent
 
   ],
   imports: [
@@ -37,20 +44,25 @@ import { OwnJokeService } from './service/OwnJoke.service';
     MDBBootstrapModule.forRoot(),
     FormsModule,
     RouterModule.forRoot([
-      {path: 'home', component: HomeComponent},
-      {path: 'categories', component: CategoriesComponent},
-      {path: 'search', component: SearchComponent},
-      {path: 'OwnJoke', component: OwnApiComponent},
-      {path: '' , redirectTo: 'home' , pathMatch: 'full'},
-      {path: "**", component: PageNotFoundComponent}
-
+      {path: 'home', component: HomeComponent, canActivate: [AuthGuard]}, // Deze canActivate moet eigenlijk altijd bij al de routes staan.
+      {path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard]},
+      {path: 'callback',component: CallbackComponent},
+      {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
+      {path: 'OwnJoke', component: OwnApiComponent, canActivate: [AuthGuard]},
+      {path: 'testAuth', component: AuthTestComponent},
+      {path: 'access_token', redirectTo: 'home', pathMatch: 'full'},
+      {path: '' , redirectTo: 'home' , pathMatch: 'full' , canActivate: [AuthGuard]},
+      {path: "**", component: PageNotFoundComponent},
     ], {useHash: true}),
     FormsModule,
     HttpClientModule
   ],
   providers: [
     ChuckNorisService,
-    OwnJokeService
+    OwnJokeService,
+    PagerService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
