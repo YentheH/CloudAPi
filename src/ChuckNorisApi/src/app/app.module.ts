@@ -19,6 +19,8 @@ import { OwnJokeService } from './service/OwnJoke.service';
 import { PagerService } from './service/pager.service';
 import { AuthService } from './auth/auth.service';
 import { AuthTestComponent } from './auth-test/auth-test.component';
+import { AuthGuard } from './auth/auth.guard';
+import { CallbackComponent } from './callback/callback.component';
 
 
 
@@ -32,7 +34,8 @@ import { AuthTestComponent } from './auth-test/auth-test.component';
     SearchComponent,
     HomeComponent,
     OwnApiComponent,
-    AuthTestComponent
+    AuthTestComponent,
+    CallbackComponent
 
   ],
   imports: [
@@ -41,13 +44,14 @@ import { AuthTestComponent } from './auth-test/auth-test.component';
     MDBBootstrapModule.forRoot(),
     FormsModule,
     RouterModule.forRoot([
-      {path: 'home', component: HomeComponent},
-      {path: 'categories', component: CategoriesComponent},
-      {path: 'search', component: SearchComponent},
-      {path: 'OwnJoke', component: OwnApiComponent},
+      {path: 'home', component: HomeComponent, canActivate: [AuthGuard]}, // Deze canActivate moet eigenlijk altijd bij al de routes staan.
+      {path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard]},
+      {path: 'callback',component: CallbackComponent},
+      {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
+      {path: 'OwnJoke', component: OwnApiComponent, canActivate: [AuthGuard]},
       {path: 'testAuth', component: AuthTestComponent},
       {path: 'access_token', redirectTo: 'home', pathMatch: 'full'},
-      {path: '' , redirectTo: 'home' , pathMatch: 'full'},
+      {path: '' , redirectTo: 'home' , pathMatch: 'full' , canActivate: [AuthGuard]},
       {path: "**", component: PageNotFoundComponent},
     ], {useHash: true}),
     FormsModule,
@@ -57,7 +61,8 @@ import { AuthTestComponent } from './auth-test/auth-test.component';
     ChuckNorisService,
     OwnJokeService,
     PagerService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
