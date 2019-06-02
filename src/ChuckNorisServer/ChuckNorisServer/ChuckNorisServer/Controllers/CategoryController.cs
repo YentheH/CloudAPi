@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/category")]
     [ApiController]
     public class CategoryController : ControllerBase
     {
@@ -54,17 +54,14 @@ namespace API.Controllers
         {
             _context.Categories.Add(category);
             _context.SaveChanges();
-            //return boek met ID
             return Created("", category);
         }
 
         [HttpPut]
         public ActionResult<Category> UpdateCategory([FromBody]Category category)
         {
-            //Boek updaten
             _context.Categories.Update(category);
             _context.SaveChanges();
-            //return boek met ID
             return Created("", category);
         }
     }

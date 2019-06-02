@@ -9,6 +9,7 @@ namespace ChuckNorisServer.Models
     {
         public int Id { get; set; }
         public string Value { get; set; }
-        public Category Category { get; set; }
+        public string Category { get; set; }
+        //public Category Category { get; set; } Dit werkt niet hij geeft telkens een null terug
     }
 }

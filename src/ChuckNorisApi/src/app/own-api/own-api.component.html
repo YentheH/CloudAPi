@@ -10,7 +10,8 @@
                 <h1 class="text-primary">List of own joke</h1>
                 <div *ngFor="let joke of OwnJokeList">
                   <p>With ID: {{joke.id}}</p>
-                  <p>And value: {{joke.value}}</p> 
+                  <p>The joke: {{joke.value}}</p> 
+                  <p>From: {{joke.category}}</p>
                 </div>
               </div>
           </div>
@@ -20,9 +21,9 @@
             <!-- form fields below -->
              <!-- <input #id type="number" placeholder="Id" /> --> 
              <input #joke type="text" placeholder="joke" />
-             <!-- <input #category type="text" placeholder="category" /> -->
+             <input #category type="text" placeholder="category"/>
              <!-- A button that invokes create action -->
-             <button (click)="createJoke(joke.value)" (click)="joke.value = ''" class="btn btn-primary">Create New joke</button>
+             <button (click)="createJoke(joke.value, category.value)" (click)="joke.value = ''" (click)="category.value = ''" class="btn btn-primary">Create New joke</button>
             </div>
 
 
@@ -34,7 +35,8 @@
           <input #box type="number" (keyup.enter)="onEnter(box.value)" (keyup.enter)="box.value = ''" placeholder="Id">
           <div *ngIf="jokeID">
               <p>With ID: {{jokeID.id}}</p>
-              <p>And value: {{jokeID.value}}</p> 
+              <p>The joke: {{jokeID.value}}</p> 
+              <p>From: {{jokeID.category}}</p>
             </div>
 
       <div>
@@ -49,7 +51,7 @@
         <div>
           <input #PutID type="number" placeholder="Id">
           <input #UpdateJoke type="text" placeholder="the joke">
-          <button (click)="updateJoke(PutID.value, UpdateJoke.value)" class="btn btn-primary">Update</button>
+          <button (click)="updateJoke(PutID.value, UpdateJoke.value)" (click)="PutID.value = ''" (click)="UpdateJoke.value = ''" class="btn btn-primary">Update</button>
         </div>
       </div>
 

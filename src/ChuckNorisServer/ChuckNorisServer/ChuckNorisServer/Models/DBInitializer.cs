@@ -15,20 +15,18 @@ namespace ChuckNorisServer.Models
             {
                 var category = new Category()
                 {
-                   CategoryName = "OwnJoke"
+                   CategoryName = "ownJokeCategory"
                 };
-                
-
                 var joke1 = new Joke()
                 {
                     Value = "test mop",
-                    Category = category
+                    Category = "ownJoke"
                 };
 
                 var joke2 = new Joke()
                 {
                     Value = "2de test mop",
-                    Category = category
+                    Category = "ownJoke"
                 };
                 context.Jokes.Add(joke1);
                 context.Jokes.Add(joke2);
