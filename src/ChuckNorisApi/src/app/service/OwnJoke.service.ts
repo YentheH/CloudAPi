@@ -48,4 +48,5 @@ export interface Icategory {
 
 export interface IcreateJoke {
   value: string;
+  category: string;
 }

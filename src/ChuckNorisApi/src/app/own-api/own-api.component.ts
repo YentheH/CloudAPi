@@ -10,7 +10,7 @@ export class OwnApiComponent implements OnInit {
   OwnJokeList: Ibuffer
   value = ''
   jokeID: IOwnJoke
-  OwnJoke: IcreateJoke = {'value': 't'}
+  OwnJoke: IcreateJoke = {'value': 't', 'category': 't'}
   PutJoke: IOwnJoke = {'category': null, 'id': 0, 'value': ''}
   error: object
   
@@ -27,9 +27,10 @@ export class OwnApiComponent implements OnInit {
     this.svc.GetID(value).subscribe(d => {this.jokeID = d})
   }
   
-  createJoke(joke: string)
+  createJoke(joke: string, category: string)
   {
     this.OwnJoke.value = joke
+    this.OwnJoke.category = category
     this.svc.postJoke(this.OwnJoke).subscribe(d => {this.OwnJoke = d, this.svc.GetOwnJokelist().subscribe(d => {this.OwnJokeList = d})})
   }
 
